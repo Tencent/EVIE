@@ -21,12 +21,13 @@ datasets:
 
 <div align="center">
 
-# 🚀 EVIE: Next-Generation Visual Document Retrieval
+# 🚀 Evidence-Vector-Informed Embedding (EVIE)
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge&logo=apache)](LICENSE)
-[![ViDoRe V3 SOTA](https://img.shields.io/badge/ViDoRe%20V3-66.02%20(4.5B)%20%7C%2066.75%20(8B)-success?style=for-the-badge&logo=target)](https://huggingface.co/tencent/EVIE-4.5B)
+[![GitHub](https://img.shields.io/badge/GitHub-Tencent%2FEVIE-black?style=for-the-badge&logo=github)](https://github.com/Tencent/EVIE)
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-EVIE--4.5B-yellow?style=for-the-badge)](https://huggingface.co/tencent/EVIE-4.5B)
 [![Hugging Face Teacher](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-EVIE--8B-purple?style=for-the-badge)](https://huggingface.co/tencent/EVIE-8B)
+[![ViDoRe V3 SOTA](https://img.shields.io/badge/ViDoRe%20V3-66.02%20(4.5B)%20%7C%2066.75%20(8B)-success?style=for-the-badge&logo=target)](https://huggingface.co/tencent/EVIE-4.5B)
 [![Backbone](https://img.shields.io/badge/Backbone-Qwen3.5-orange?style=for-the-badge&logo=deepnote)](https://github.com/QwenLM/Qwen2.5-VL)
 [![HAC Compression](https://img.shields.io/badge/Index%20Storage-3.81%20GiB%20%2F%201M%20pages-brightgreen?style=for-the-badge&logo=databricks)](#-token-compression-hac)
 
@@ -34,6 +35,12 @@ datasets:
   <b>High-Precision Late-Interaction Retrieval</b> • 
   <b>Dynamic Prefix-MRL (64D–2048D)</b> • 
   <b>Training-Free HAC Token Compression</b>
+</p>
+
+<p align="center">
+  🤗 <a href="https://huggingface.co/tencent/EVIE-4.5B"><b>EVIE-4.5B (Prefix-MRL & HAC)</b></a> &nbsp;•&nbsp;
+  🤗 <a href="https://huggingface.co/tencent/EVIE-8B"><b>EVIE-8B (Flagship Teacher)</b></a> &nbsp;•&nbsp;
+  🐙 <a href="https://github.com/Tencent/EVIE"><b>GitHub: Tencent/EVIE</b></a>
 </p>
 
 </div>
@@ -57,7 +64,7 @@ Performance comparison across modern multi-vector late-interaction visual docume
 | Rank | Model | Base Model | Param | Embed Dim | ViDoRe V1 | ViDoRe V2 | ViDoRe V3 |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | 🥇 | **[EVIE-8B](https://huggingface.co/tencent/EVIE-8B)** | Qwen3.5-9B | 8.41B | 4096D | **92.64** | **75.35** | **66.75** |
-| 🥈 | **EVIE-4.5B** | Qwen3.5-4B | 4.61B | 64–2048D Prefix-MRL | **92.53** | **74.91** | **66.02** |
+| 🥈 | **[EVIE-4.5B](https://huggingface.co/tencent/EVIE-4.5B)** | Qwen3.5-4B | 4.61B | 64–2048D Prefix-MRL | **92.53** | **74.91** | **66.02** |
 | 🥉 | **EVIE-Preview-4.5B** | Qwen3.5-4B | 4.54B | 128D | 91.73 | 70.87 | 65.36 |
 | 4 | webAI-ColVec1.1-8b | Qwen2.5-VL | 8.40B | 640D | 91.30 | 65.82 | 65.32 |
 | 5 | VultronRetrieverPrime-8B | Qwen3.5-9B | 8.40B | 320D | 92.08 | 68.18 | 64.26 |
