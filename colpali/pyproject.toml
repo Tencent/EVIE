@@ -1,0 +1,82 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.wheel]
+include = ["colpali_engine"]
+
+[project]
+name = "colpali_engine"
+dynamic = ["version"]
+description = "The code used to train and run inference with the ColPali architecture."
+authors = [
+    { name = "Manuel Faysse", email = "manuel.faysse@illuin.tech" },
+    { name = "Hugues Sibille", email = "hugues.sibille@illuin.tech" },
+    { name = "Tony Wu", email = "tony.wu@illuin.tech" },
+]
+maintainers = [
+    { name = "Manuel Faysse", email = "manuel.faysse@illuin.tech" },
+    { name = "Tony Wu", email = "tony.wu@illuin.tech" },
+]
+readme = "README.md"
+requires-python = ">=3.10,<3.15"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "numpy",
+    "peft>=0.18.0,<0.20.0",
+    "pillow>=10.0.0",
+    "requests",
+    "scipy",
+    "torch>=2.2.0,<2.12.0",
+    "torchvision",
+    "transformers>=5.3.0,<6.0.0",
+]
+
+[project.optional-dependencies]
+train = [
+    "accelerate>=1.1.0,<2.0.0",
+    "bitsandbytes",
+    "configue>=5.0.0",
+    "datasets>=2.19.1",
+    "mteb>=1.16.3,<3",
+    "pillow>=10.0.0,<12.3.0",
+    "typer>=0.15.1",
+]
+
+lik = ["late-interaction-kernels>=0.4.1,<0.5.0"]
+
+dev = ["pytest>=8.0.0", "ruff>=0.4.0"]
+
+all = [
+    "colpali-engine[dev]",
+    "colpali-engine[lik]",
+    "colpali-engine[train]",
+]
+
+[project.urls]
+homepage = "https://github.com/illuin-tech/colpali"
+
+[tool.pytest.ini_options]
+filterwarnings = ["ignore::Warning"]
+markers = ["slow: marks test as slow"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401", "F403"]

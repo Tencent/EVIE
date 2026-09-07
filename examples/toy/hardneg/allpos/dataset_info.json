@@ -1,0 +1,38 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "query": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "positive_doc_id": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "negative_doc_ids": {
+      "feature": {
+        "dtype": "int64",
+        "_type": "Value"
+      },
+      "_type": "List"
+    },
+    "negative_mask": {
+      "feature": {
+        "dtype": "int64",
+        "_type": "Value"
+      },
+      "_type": "List"
+    },
+    "sample_weight": {
+      "dtype": "float64",
+      "_type": "Value"
+    },
+    "query_group_id": {
+      "dtype": "int64",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}

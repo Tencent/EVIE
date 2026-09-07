@@ -1,0 +1,1 @@
+from .visual_retriever_collator import VisualRetrieverCollator

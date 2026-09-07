@@ -1,0 +1,18 @@
+EVIE
+Copyright (C) 2026 Tencent. All rights reserved.
+
+This product is licensed under the Apache License, Version 2.0.
+See the LICENSE file in the same directory.
+
+This distribution includes or is derived from:
+
+1. Qwen3.5
+   Copyright (c) Qwen
+   License: Apache-2.0
+   https://huggingface.co/Qwen
+
+2. colpali-engine (vendored under colpali/, with Tencent modifications
+   for ColQwen3.5 Prefix-MRL and EVIE-ARD)
+   Copyright (c) 2024 Manuel Faysse, Hugues Sibille, Tony Wu
+   License: MIT
+   https://github.com/illuin-tech/colpali

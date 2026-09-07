@@ -1,0 +1,51 @@
+# local pointers / secrets
+env.sh
+*.env
+!.env.example
+
+# Python env — interpreter only; never dump train/eval/compress here
+.venv/
+env/
+venv/
+ENV/
+train-env/
+
+# generated work at repo root (developers produce these locally)
+/.cache/
+/.tmp/
+/runs/
+/logs/
+/data/
+/outputs/
+/models/
+wandb/
+**/wandb/
+**/tensorboard/
+**/lightning_logs/
+
+# weights / indexes / blobs — HF repos add checkpoints separately
+**/*.safetensors
+**/*.bin
+**/*.pt
+**/*.ckpt
+**/*.onnx
+**/*.gguf
+**/*.h5
+**/*.npz
+
+# compiled / caches
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/.ipynb_checkpoints/
+*.ready
+**/*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# editors
+.DS_Store
+.idea/
+.vscode/
+.python-version
+*.log
