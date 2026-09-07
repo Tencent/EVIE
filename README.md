@@ -51,24 +51,11 @@ datasets:
   🐙 <a href="https://github.com/Tencent/EVIE"><b>GitHub: Tencent/EVIE</b></a>
 </p>
 
-<p align="center">
-  <b>Zifei Wang</b> (Tencent IMA Product Center) · <b>Wei Wen</b> (Tencent Youtu Lab, corresponding)
-</p>
-
 </div>
 
 ---
 
 > 📢 **Release Announcement**: All model weights, training pipelines, token compression algorithms (HAC), and evaluation suites have been fully open-sourced in this repository. Full technical details, architectural ablations, and the formal research paper will be updated in an upcoming release.
-
----
-
-## 👥 Authors
-
-| Name | Role | Affiliation | Contact |
-|------|------|-------------|--------|
-| **Zifei Wang** | Author | Tencent IMA Product Center | [zifeiwang@tencent.com](mailto:zifeiwang@tencent.com) |
-| **Wei Wen** | Author & Corresponding | Tencent Youtu Lab | [jawnrwen@tencent.com](mailto:jawnrwen@tencent.com) |
 
 ---
 
@@ -360,3 +347,12 @@ MODEL_DIR=. RUN_NAME=evie-4.5b bash code/shared/eval_run.sh
 ## 📄 License
 
 This repository is licensed under the [Apache-2.0 License](LICENSE).
+
+---
+
+## 👥 Authors
+
+| Name | Role | Affiliation | Contact |
+|------|------|-------------|--------|
+| **Zifei Wang** | Author | Tencent IMA Product Center | [zifeiwang@tencent.com](mailto:zifeiwang@tencent.com) |
+| **Wei Wen** | Author & Corresponding | Tencent Youtu Lab | [jawnrwen@tencent.com](mailto:jawnrwen@tencent.com) |
