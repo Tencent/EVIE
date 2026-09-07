@@ -21,15 +21,22 @@ datasets:
 
 <div align="center">
 
-# 🚀 Evidence-Vector-Informed Embedding (EVIE)
+# 🏆 EVIE: The Most Accurate and Lightweight Visual Document Retriever
+### Evidence-Vector-Informed Embedding (EVIE)
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge&logo=apache)](LICENSE)
-[![GitHub](https://img.shields.io/badge/GitHub-Tencent%2FEVIE-black?style=for-the-badge&logo=github)](https://github.com/Tencent/EVIE)
-[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-EVIE--4.5B-yellow?style=for-the-badge)](https://huggingface.co/tencent/EVIE-4.5B)
-[![Hugging Face Teacher](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-EVIE--8B-purple?style=for-the-badge)](https://huggingface.co/tencent/EVIE-8B)
-[![ViDoRe V3 SOTA](https://img.shields.io/badge/ViDoRe%20V3-66.02%20(4.5B)%20%7C%2066.75%20(8B)-success?style=for-the-badge&logo=target)](https://huggingface.co/tencent/EVIE-4.5B)
-[![Backbone](https://img.shields.io/badge/Backbone-Qwen3.5-orange?style=for-the-badge&logo=deepnote)](https://github.com/QwenLM/Qwen2.5-VL)
-[![HAC Compression](https://img.shields.io/badge/Index%20Storage-3.81%20GiB%20%2F%201M%20pages-brightgreen?style=for-the-badge&logo=databricks)](#-token-compression-hac)
+<p align="center">
+  <a href="#-comprehensive-vidore-leaderboard-comparison"><img src="https://img.shields.io/badge/🥇_ViDoRe_V3-66.75_·_Rank_%231-FFD700?style=for-the-badge&labelColor=1a1a2e" alt="ViDoRe V3 Rank 1"></a>
+  <a href="#-comprehensive-vidore-leaderboard-comparison"><img src="https://img.shields.io/badge/🥇_ViDoRe_V1+V2-92.18_·_Rank_%231-FFD700?style=for-the-badge&labelColor=1a1a2e" alt="ViDoRe V1+V2 Rank 1"></a>
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat-square&logo=apache" alt="License"></a>
+  <a href="https://github.com/Tencent/EVIE"><img src="https://img.shields.io/badge/GitHub-Tencent%2FEVIE-black?style=flat-square&logo=github" alt="GitHub"></a>
+  <a href="https://huggingface.co/tencent/EVIE-4.5B"><img src="https://img.shields.io/badge/🤗_Hugging_Face-EVIE--4.5B-yellow?style=flat-square" alt="Hugging Face 4.5B"></a>
+  <a href="https://huggingface.co/tencent/EVIE-8B"><img src="https://img.shields.io/badge/🤗_Hugging_Face-EVIE--8B-purple?style=flat-square" alt="Hugging Face 8B"></a>
+  <a href="https://github.com/QwenLM/Qwen2.5-VL"><img src="https://img.shields.io/badge/Backbone-Qwen3.5-orange?style=flat-square&logo=deepnote" alt="Backbone"></a>
+  <a href="#-token-compression-hac"><img src="https://img.shields.io/badge/Index_Storage-3.81_GiB_%2F_1M_pages-brightgreen?style=flat-square&logo=databricks" alt="Storage"></a>
+</p>
 
 <p align="center">
   <b>High-Precision Late-Interaction Retrieval</b> • 
@@ -47,6 +54,10 @@ datasets:
 
 ---
 
+> 📢 **Release Announcement**: All model weights, training pipelines, token compression algorithms (HAC), and evaluation suites have been fully open-sourced in this repository. Full technical details, architectural ablations, and the formal research paper will be updated in an upcoming release.
+
+---
+
 ## 🌟 Highlights
 
 - **Top-Tier Benchmark Performance**: **66.75** on ViDoRe V3 for **EVIE-8B** and **66.02** for **EVIE-4.5B** with single-projection Prefix-MRL.
@@ -57,14 +68,32 @@ datasets:
 
 ---
 
+## 🧠 Architecture & Technical Highlights
+
+```text
+ Query Text  ────────► ColQwen3.5 (BiDir Attention) ────► Elastic Multi-Vectors (64D–2048D)
+                                                                    │
+                                                           MaxSim Matching
+                                                                    │
+ Doc Image   ────────► ColQwen3.5 (Vision Encoder)  ────► HAC Compression ──► 32 Vectors / Page
+```
+
+- **Late-Interaction Multi-Vector Paradigm**: Unlike dense single-vector retrieval that collapses high-resolution document pages into a single point, EVIE preserves fine-grained visual details (complex tables, layout structures, charts, and small typography) through token-level representations, scoring relevance via late-interaction MaxSim:
+  $$S(Q, D) = \sum_{i=1}^{|Q|} \max_{j=1}^{|D|} (q_i \cdot d_j)$$
+- **Prefix-MRL (Single-Head Elastic Representation)**: EVIE-4.5B introduces single-projection Prefix-MRL. A single 2048D linear projection natively supports runtime truncation down to $\{64, 128, 256, 512, 1024, 2048\}$ dimensions without maintaining multiple heads or separate checkpoints.
+- **EVIE-ARD (Anchor-preserving Relation Distillation)**: The 4.5B student is distilled from the 8B teacher using token-relation topological geometry, hard-negative margin calibration, and anchor-preserving alignment, maintaining peak retrieval accuracy even under low-dimensional prefixes.
+- **HAC Token Compression (Hierarchical Agglomerative Clustering)**: A plug-and-play, training-free token reduction algorithm that aggregates visual patch tokens into 32 or 64 semantic centroids in joint feature-spatial space, reducing 1M-page index footprints to as little as **3.81 GiB**.
+
+---
+
 ## 📊 Comprehensive ViDoRe Leaderboard Comparison
 
 Performance comparison across modern multi-vector late-interaction visual document retrievers on ViDoRe:
 
-| Rank | Model | Base Model | Param | Embed Dim | ViDoRe V1 | ViDoRe V2 | ViDoRe V3 |
+| Rank | Model | Base Model | Param | Embed Dim | ViDoRe V1 (nDCG@5) | ViDoRe V2 (nDCG@5) | ViDoRe V3 (nDCG@10) |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| 🥇 | **[EVIE-8B](https://huggingface.co/tencent/EVIE-8B)** | Qwen3.5-9B | 8.41B | 4096D | **92.64** | **75.35** | **66.75** |
-| 🥈 | **[EVIE-4.5B](https://huggingface.co/tencent/EVIE-4.5B)** | Qwen3.5-4B | 4.61B | 64–2048D Prefix-MRL | **92.53** | **74.91** | **66.02** |
+| 🥇 | **[EVIE-8B](https://huggingface.co/tencent/EVIE-8B)** | Qwen3.5-9B | 8.41B | 4096D | **92.18** | **74.23** | **66.75** |
+| 🥈 | **[EVIE-4.5B](https://huggingface.co/tencent/EVIE-4.5B)** | Qwen3.5-4B | 4.61B | 64–2048D Prefix-MRL | **92.07** | **73.38** | **66.02** |
 | 🥉 | **EVIE-Preview-4.5B** | Qwen3.5-4B | 4.54B | 128D | 91.73 | 70.87 | 65.36 |
 | 4 | webAI-ColVec1.1-8b | Qwen2.5-VL | 8.40B | 640D | 91.30 | 65.82 | 65.32 |
 | 5 | VultronRetrieverPrime-8B | Qwen3.5-9B | 8.40B | 320D | 92.08 | 68.18 | 64.26 |
