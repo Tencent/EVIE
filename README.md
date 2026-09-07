@@ -79,8 +79,12 @@ datasets:
 ```
 
 - **Late-Interaction Multi-Vector Paradigm**: Unlike dense single-vector retrieval that collapses high-resolution document pages into a single point, EVIE preserves fine-grained visual details (complex tables, layout structures, charts, and small typography) through token-level representations, scoring relevance via late-interaction MaxSim:
-  $$S(Q, D) = \sum_{i=1}^{|Q|} \max_{j=1}^{|D|} (q_i \cdot d_j)$$
-- **Prefix-MRL (Single-Head Elastic Representation)**: EVIE-4.5B introduces single-projection Prefix-MRL. A single 2048D linear projection natively supports runtime truncation down to $\{64, 128, 256, 512, 1024, 2048\}$ dimensions without maintaining multiple heads or separate checkpoints.
+
+$$
+S(Q, D) = \sum_{i=1}^{|Q|} \max_{j=1}^{|D|} (q_i \cdot d_j)
+$$
+
+- **Prefix-MRL (Single-Head Elastic Representation)**: EVIE-4.5B introduces single-projection Prefix-MRL. A single 2048D linear projection natively supports runtime truncation down to {64, 128, 256, 512, 1024, 2048} dimensions without maintaining multiple heads or separate checkpoints.
 - **EVIE-ARD (Anchor-preserving Relation Distillation)**: The 4.5B student is distilled from the 8B teacher using token-relation topological geometry, hard-negative margin calibration, and anchor-preserving alignment, maintaining peak retrieval accuracy even under low-dimensional prefixes.
 - **HAC Token Compression (Hierarchical Agglomerative Clustering)**: A plug-and-play, training-free token reduction algorithm that aggregates visual patch tokens into 32 or 64 semantic centroids in joint feature-spatial space, reducing 1M-page index footprints to as little as **3.81 GiB**.
 
