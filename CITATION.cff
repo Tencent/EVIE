@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: If you use EVIE, please cite it using the metadata from this file.
+type: software
+title: "EVIE: High-Performance Multilingual Visual Document Retrieval with Matryoshka Embeddings and Token Compression"
+license: Apache-2.0
+repository-code: "https://github.com/Tencent/EVIE"
+url: "https://huggingface.co/tencent/EVIE-4.5B"
+date-released: "2026-09-07"
+authors:
+  - family-names: Wang
+    given-names: Zifei
+    email: zifeiwang@tencent.com
+    affiliation: "Tencent IMA Product Center"
+  - family-names: Wen
+    given-names: Wei
+    email: jawnrwen@tencent.com
+    affiliation: "Tencent Youtu Lab"
+preferred-citation:
+  type: generic
+  title: "EVIE: High-Performance Multilingual Visual Document Retrieval with Matryoshka Embeddings and Token Compression"
+  authors:
+    - family-names: Wang
+      given-names: Zifei
+    - family-names: Wen
+      given-names: Wei
+  year: 2026
+  notes: "Corresponding author: Wei Wen (jawnrwen@tencent.com)"
+  url: "https://github.com/Tencent/EVIE"
