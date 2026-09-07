@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prefix-MRL student trainer with EVIE-ARD.
+"""Prefix-MRL student trainer with ARD.
 
 One maximum projection is initialized from Preview d128. A frozen EVIE-8B
 teacher transfers row/column MaxSim relations and hard-negative margins; the
@@ -455,7 +455,7 @@ def main() -> None:
         else:
             print("== no teacher: Prefix-MRL retrieval-only ==")
         print(
-            f"== Loss: EVIE-ARD (prefixes={list(head_dims)}, kd_dims={list(kd_dims)}, "
+            f"== Loss: ARD (prefixes={list(head_dims)}, kd_dims={list(kd_dims)}, "
             f"tau_T={args.teacher_temperature}, tau_S={student_temperatures}, "
             f"relation={args.relation_weight}, margin={args.margin_weight}, "
             f"anchor={args.anchor_weight}, dirs={args.kd_directions}, "

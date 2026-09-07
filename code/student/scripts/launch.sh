@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Train EVIE-4.5B (Prefix-MRL + EVIE-ARD). Requires DATA_ROOT, HARDNEG_ROOT, TEACHER_DIR.
+# Train EVIE-4.5B (Prefix-MRL + ARD). Requires DATA_ROOT, HARDNEG_ROOT, TEACHER_DIR.
 set -euo pipefail
 
 ROOT="${ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"

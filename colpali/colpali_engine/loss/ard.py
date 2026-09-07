@@ -1,4 +1,4 @@
-"""EVIE-ARD loss for prefix-MRL late-interaction retrieval.
+"""ARD loss for prefix-MRL late-interaction retrieval.
 
 The task objective supervises every configured prefix. Relation distillation is
 restricted to selected capacity-compatible prefixes and aligns both rows and

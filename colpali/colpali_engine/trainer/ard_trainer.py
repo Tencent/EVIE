@@ -1,4 +1,4 @@
-"""EVIE-ARD trainer: prefix-MRL relation distillation for MaxSim retrieval.
+"""ARD trainer: prefix-MRL relation distillation for MaxSim retrieval.
 
 Gathers queries so each rank scores every global query against its local
 documents, then reconstructs the full MaxSim square. That yields both the

@@ -64,7 +64,7 @@ datasets:
 - **⚡ Prefix-MRL Elasticity**: Single 2048D linear projection. Freely truncate at runtime into $\{64, 128, 256, 512, 1024, 2048\}$ dimensions without separate models.
 - **📦 Ultra-Compact Index (HAC)**: Training-free Hierarchical Agglomerative Clustering compresses token counts from ~750 down to **32 vectors/page**, slashing index storage to **3.81 GiB per million pages**.
 - **🌐 138 Multilingual Tasks Evaluated**: Thoroughly evaluated across ViDoRe V1, V2, V3, and JinaVDR across 4 metric families (nDCG, Recall, MAP, MRR @1/5/10).
-- **🔬 EVIE-ARD Distillation Recipe**: Anchor-preserving, capacity-aware relation distillation reproducing full student training from the 8B teacher.
+- **🔬 ARD Distillation Recipe**: Anchor-preserving, capacity-aware relation distillation reproducing full student training from the 8B teacher.
 
 ---
 
@@ -85,7 +85,7 @@ S(Q, D) = \sum_{i=1}^{|Q|} \max_{j=1}^{|D|} (q_i \cdot d_j)
 $$
 
 - **Prefix-MRL (Single-Head Elastic Representation)**: EVIE-4.5B introduces single-projection Prefix-MRL. A single 2048D linear projection natively supports runtime truncation down to {64, 128, 256, 512, 1024, 2048} dimensions without maintaining multiple heads or separate checkpoints.
-- **EVIE-ARD (Anchor-preserving Relation Distillation)**: The 4.5B student is distilled from the 8B teacher using token-relation topological geometry, hard-negative margin calibration, and anchor-preserving alignment, maintaining peak retrieval accuracy even under low-dimensional prefixes.
+- **ARD (Anchor-preserving Relation Distillation)**: The 4.5B student is distilled from the 8B teacher using token-relation topological geometry, hard-negative margin calibration, and anchor-preserving alignment, maintaining peak retrieval accuracy even under low-dimensional prefixes.
 - **HAC Token Compression (Hierarchical Agglomerative Clustering)**: A plug-and-play, training-free token reduction algorithm that aggregates visual patch tokens into 32 or 64 semantic centroids in joint feature-spatial space, reducing 1M-page index footprints to as little as **3.81 GiB**.
 
 ---
@@ -128,7 +128,7 @@ Performance comparison across modern multi-vector late-interaction visual docume
 
 ## 🎯 Prefix-MRL Elastic Multi-Vector Head
 
-EVIE-4.5B embeds document and query tokens with a single 2048D linear projection head trained via **EVIE-ARD**. You can truncate the channel dimension on-the-fly without maintaining different models:
+EVIE-4.5B embeds document and query tokens with a single 2048D linear projection head trained via **ARD**. You can truncate the channel dimension on-the-fly without maintaining different models:
 
 ```text
 Full Projection (2048D)  [========================================================] 66.02
@@ -250,10 +250,10 @@ EVIE/
 ├── config.json               # Model configuration (Prefix-MRL, max 2048)
 ├── processor_config.json     # Multimodal processor config
 ├── infer.py                  # Standalone inference & scoring CLI
-├── colpali/                  # ColQwen3.5 + Prefix-MRL + EVIE-ARD
+├── colpali/                  # ColQwen3.5 + Prefix-MRL + ARD
 ├── code/
 │   ├── teacher/              # EVIE-8B training arms and soup merging
-│   ├── student/              # EVIE-4.5B Prefix-MRL / EVIE-ARD distillation
+│   ├── student/              # EVIE-4.5B Prefix-MRL / ARD distillation
 │   ├── shared/               # Data loaders, adapter merges, and 138-task eval harness
 │   └── compress/             # Training-free HAC token compression pipeline
 ├── examples/demo/            # 8-page retrieval demo (run.sh)
@@ -264,7 +264,7 @@ EVIE/
 
 ## 🔬 Training & Distillation Reproduction
 
-Student training executes Prefix-MRL plus EVIE-ARD: capacity-aware relation distillation and margin distillation against frozen **EVIE-8B**, with a Preview-anchor term on the 128D prefix:
+Student training executes Prefix-MRL plus ARD: capacity-aware relation distillation and margin distillation against frozen **EVIE-8B**, with a Preview-anchor term on the 128D prefix:
 
 ```bash
 cp env.sh.example env.sh

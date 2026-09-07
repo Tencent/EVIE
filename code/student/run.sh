@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Train EVIE-4.5B: Prefix-MRL + EVIE-ARD from EVIE-8B, two arms, then mean-merge.
+# Train EVIE-4.5B: Prefix-MRL + ARD from EVIE-8B, two arms, then mean-merge.
 set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

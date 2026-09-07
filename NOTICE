@@ -12,7 +12,7 @@ This distribution includes or is derived from:
    https://huggingface.co/Qwen
 
 2. colpali-engine (vendored under colpali/, with Tencent modifications
-   for ColQwen3.5 Prefix-MRL and EVIE-ARD)
+   for ColQwen3.5 Prefix-MRL and ARD)
    Copyright (c) 2024 Manuel Faysse, Hugues Sibille, Tony Wu
    License: MIT
    https://github.com/illuin-tech/colpali
