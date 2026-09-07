@@ -20,12 +20,12 @@
     "resample": 3,
     "rescale_factor": 0.00392156862745098,
     "size": {
-      "longest_edge": 786432,
+      "longest_edge": 1048576,
       "shortest_edge": 65536
     },
     "temporal_patch_size": 2
   },
-  "processor_class": "ColQwen3_5Processor",
+  "processor_class": "Qwen3VLProcessor",
   "video_processor": {
     "do_convert_rgb": true,
     "do_normalize": true,

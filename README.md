@@ -13,6 +13,7 @@ tags:
 - matryoshka
 - vidore
 - token-compression
+- sentence-transformers
 datasets:
 - vidore/vidore_benchmark
 - vidore/vidore_benchmark_v2
@@ -191,7 +192,9 @@ Protocol `paired-all-pages-dedup+process_queries+ndcg2r-20260827` ($\text{MVT} =
 
 ## ⚡ Quick Start
 
-### Installation
+### ColPali Engine
+
+#### Installation
 
 ```bash
 git clone https://github.com/Tencent/EVIE.git
@@ -200,7 +203,7 @@ pip install -r requirements.txt
 export PYTHONPATH="$(pwd)/colpali${PYTHONPATH:+:$PYTHONPATH}"
 ```
 
-### Self-Contained Python Inference
+#### Self-Contained Python Inference
 
 ```python
 import torch
@@ -238,6 +241,50 @@ with torch.inference_mode():
 
 scores = processor.score(query_embeddings, image_embeddings)
 print("Late-interaction MaxSim Relevance Score:", scores)
+```
+
+### Sentence Transformers
+
+```bash
+pip install "sentence-transformers[image] @ git+https://github.com/huggingface/sentence-transformers.git"
+```
+
+```python
+from sentence_transformers import MultiVectorEncoder
+
+model = MultiVectorEncoder("tencent/EVIE-4.5B")
+
+queries = [
+    "What is the variable represented on the y-axis of the graph?",
+    "Total outlay is maximum in which year?",
+]
+documents = [
+    "https://huggingface.co/datasets/sentence-transformers/example-documents/resolve/main/doc1.jpg",
+    "https://huggingface.co/datasets/sentence-transformers/example-documents/resolve/main/doc2.jpg",
+    "https://huggingface.co/datasets/sentence-transformers/example-documents/resolve/main/doc3.jpg",
+    "https://huggingface.co/datasets/sentence-transformers/example-documents/resolve/main/doc4.jpg",
+]
+
+query_embeddings = model.encode_query(queries)
+document_embeddings = model.encode_document(documents)
+print(query_embeddings[0].shape, document_embeddings[0].shape)
+# torch.Size([23, 2048]) torch.Size([991, 2048])
+
+scores = model.similarity(query_embeddings, document_embeddings)
+print(scores)
+# tensor([[17.2500,  7.6084,  6.7920,  4.8398],
+#         [ 4.5312, 12.7812,  4.3530,  4.2368]])
+```
+
+Documents can be URLs, local image paths, or `PIL.Image` objects. The example returns the full 2048-dimensional token embeddings. Scores can vary slightly with dtype and attention backend. To use a smaller Prefix-MRL dimension, slice and renormalize:
+
+```python
+from torch.nn.functional import normalize
+
+dimension = 128
+query_embeddings = [normalize(embedding[..., :dimension], dim=-1) for embedding in query_embeddings]
+document_embeddings = [normalize(embedding[..., :dimension], dim=-1) for embedding in document_embeddings]
+scores = model.similarity(query_embeddings, document_embeddings)
 ```
 
 ---

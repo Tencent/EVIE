@@ -11,7 +11,7 @@
   "image_token": "<|image_pad|>",
   "is_local": true,
   "local_files_only": false,
-  "max_num_visual_tokens": 768,
+  "max_num_visual_tokens": 1024,
   "model_max_length": 262144,
   "model_specific_special_tokens": {
     "audio_bos_token": "<|audio_start|>",
@@ -24,7 +24,8 @@
   },
   "pad_token": "<|endoftext|>",
   "pretokenize_regex": "(?i:'s|'t|'re|'ve|'m|'ll|'d)|[^\\r\\n\\p{L}\\p{N}]?[\\p{L}\\p{M}]+|\\p{N}| ?[^\\s\\p{L}\\p{M}\\p{N}]+[\\r\\n]*|\\s*[\\r\\n]+|\\s+(?!\\S)|\\s+",
-  "processor_class": "ColQwen3_5Processor",
+  "padding_side": "left",
+  "processor_class": "Qwen3VLProcessor",
   "split_special_tokens": false,
   "tokenizer_class": "Qwen2Tokenizer",
   "unk_token": null,
