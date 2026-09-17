@@ -31,6 +31,12 @@ datasets:
 </p>
 
 <p align="center">
+  <a href="https://paperswithcode.co/api/v1/papers/114151/leaderboard-badge-link?eval=29877"><img src="https://paperswithcode.co/api/v1/papers/114151/leaderboard-badge.svg?eval=29877&live=1" alt="Papers with Code: SOTA on ViDoRe"></a>
+  <a href="https://paperswithcode.co/api/v1/papers/114151/leaderboard-badge-link?eval=29880"><img src="https://paperswithcode.co/api/v1/papers/114151/leaderboard-badge.svg?eval=29880&live=1" alt="Papers with Code: SOTA on ViDoRe V3"></a>
+  <a href="https://paperswithcode.co/api/v1/papers/114151/leaderboard-badge-link?eval=29878"><img src="https://paperswithcode.co/api/v1/papers/114151/leaderboard-badge.svg?eval=29878&live=1" alt="Papers with Code: SOTA on ViDoRe v2"></a>
+</p>
+
+<p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat-square&logo=apache" alt="License"></a>
   <a href="https://github.com/Tencent/EVIE"><img src="https://img.shields.io/badge/GitHub-Tencent%2FEVIE-black?style=flat-square&logo=github" alt="GitHub"></a>
   <a href="https://huggingface.co/tencent/EVIE-4.5B"><img src="https://img.shields.io/badge/🤗_Hugging_Face-EVIE--4.5B-yellow?style=flat-square" alt="Hugging Face 4.5B"></a>
