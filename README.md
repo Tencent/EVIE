@@ -26,19 +26,8 @@ datasets:
 ### Evidence-Vector-Informed Embedding (EVIE)
 
 <p align="center">
-  <a href="https://huggingface.co/spaces/vidore/vidore-leaderboard"><img src="https://img.shields.io/badge/🥇_ViDoRe_V3_Leaderboard-EVIE--8B_%231_·_66.24-FFD700?style=for-the-badge&labelColor=1a1a2e" alt="ViDoRe V3 Leaderboard Rank 1"></a>
-  <a href="https://huggingface.co/spaces/vidore/vidore-leaderboard"><img src="https://img.shields.io/badge/🥈_ViDoRe_V3_Leaderboard-EVIE--4.5B_%232_·_65.70-C0C0C0?style=for-the-badge&labelColor=1a1a2e" alt="ViDoRe V3 Leaderboard Rank 2"></a>
-</p>
-
-<p align="center">
-  <a href="#-comprehensive-vidore-leaderboard-comparison"><img src="https://img.shields.io/badge/🥇_ViDoRe_V3-66.75_·_Rank_%231-FFD700?style=for-the-badge&labelColor=1a1a2e" alt="ViDoRe V3 Rank 1"></a>
-  <a href="#-comprehensive-vidore-leaderboard-comparison"><img src="https://img.shields.io/badge/🥇_ViDoRe_V1+V2-92.18_·_Rank_%231-FFD700?style=for-the-badge&labelColor=1a1a2e" alt="ViDoRe V1+V2 Rank 1"></a>
-</p>
-
-<p align="center">
-  <a href="https://paperswithcode.co/api/v1/papers/114151/leaderboard-badge-link?eval=29877"><img src="https://paperswithcode.co/api/v1/papers/114151/leaderboard-badge.svg?eval=29877&live=1" alt="Papers with Code: SOTA on ViDoRe"></a>
-  <a href="https://paperswithcode.co/api/v1/papers/114151/leaderboard-badge-link?eval=29880"><img src="https://paperswithcode.co/api/v1/papers/114151/leaderboard-badge.svg?eval=29880&live=1" alt="Papers with Code: SOTA on ViDoRe V3"></a>
-  <a href="https://paperswithcode.co/api/v1/papers/114151/leaderboard-badge-link?eval=29878"><img src="https://paperswithcode.co/api/v1/papers/114151/leaderboard-badge.svg?eval=29878&live=1" alt="Papers with Code: SOTA on ViDoRe v2"></a>
+  <a href="https://huggingface.co/spaces/vidore/vidore-leaderboard"><img src="https://img.shields.io/badge/ViDoRe_Leaderboard-SOTA-FFD700?style=for-the-badge&labelColor=1a1a2e" alt="ViDoRe Leaderboard SOTA"></a>
+  <a href="https://paperswithcode.co/paper/114151"><img src="https://img.shields.io/badge/Papers_with_Code-SOTA-FFD700?style=for-the-badge&labelColor=1a1a2e" alt="Papers with Code SOTA"></a>
 </p>
 
 <p align="center">
