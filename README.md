@@ -26,6 +26,11 @@ datasets:
 ### Evidence-Vector-Informed Embedding (EVIE)
 
 <p align="center">
+  <a href="https://huggingface.co/spaces/vidore/vidore-leaderboard"><img src="https://img.shields.io/badge/🥇_ViDoRe_V3_Leaderboard-EVIE--8B_%231_·_66.24-FFD700?style=for-the-badge&labelColor=1a1a2e" alt="ViDoRe V3 Leaderboard Rank 1"></a>
+  <a href="https://huggingface.co/spaces/vidore/vidore-leaderboard"><img src="https://img.shields.io/badge/🥈_ViDoRe_V3_Leaderboard-EVIE--4.5B_%232_·_65.70-C0C0C0?style=for-the-badge&labelColor=1a1a2e" alt="ViDoRe V3 Leaderboard Rank 2"></a>
+</p>
+
+<p align="center">
   <a href="#-comprehensive-vidore-leaderboard-comparison"><img src="https://img.shields.io/badge/🥇_ViDoRe_V3-66.75_·_Rank_%231-FFD700?style=for-the-badge&labelColor=1a1a2e" alt="ViDoRe V3 Rank 1"></a>
   <a href="#-comprehensive-vidore-leaderboard-comparison"><img src="https://img.shields.io/badge/🥇_ViDoRe_V1+V2-92.18_·_Rank_%231-FFD700?style=for-the-badge&labelColor=1a1a2e" alt="ViDoRe V1+V2 Rank 1"></a>
 </p>
@@ -94,6 +99,21 @@ $$
 - **Prefix-MRL (Single-Head Elastic Representation)**: EVIE-4.5B introduces single-projection Prefix-MRL. A single 2048D linear projection natively supports runtime truncation down to {64, 128, 256, 512, 1024, 2048} dimensions without maintaining multiple heads or separate checkpoints.
 - **ARD (Anchor-preserving Relation Distillation)**: The 4.5B student is distilled from the 8B teacher using token-relation topological geometry, hard-negative margin calibration, and anchor-preserving alignment, maintaining peak retrieval accuracy even under low-dimensional prefixes.
 - **HAC Token Compression (Hierarchical Agglomerative Clustering)**: A plug-and-play, training-free token reduction algorithm that aggregates visual patch tokens into 32 or 64 semantic centroids in joint feature-spatial space, reducing 1M-page index footprints to as little as **3.81 GiB**.
+
+---
+
+## 🏆 ViDoRe V3 Leaderboard
+
+Official ranking on the [ViDoRe leaderboard](https://huggingface.co/spaces/vidore/vidore-leaderboard) (ViDoRe V3, Mean Task).
+
+| Rank | Model | Parameters | Mean (Task) |
+| :---: | :--- | :---: | :---: |
+| 🥇 #1 | **[tencent/EVIE-8B](https://huggingface.co/tencent/EVIE-8B)** | 8.4B | **66.24** |
+| 🥈 #2 | **[tencent/EVIE-4.5B](https://huggingface.co/tencent/EVIE-4.5B)** | 4.5B | **65.70** |
+| #3 | webAI-ColVec1.1-8b | 8.4B | 64.95 |
+| #4 | VultronRetrieverPrime-Qwen3.5-8B | 8.4B | 64.26 |
+| #5 | webAI-ColVec1.1-4b | 4.5B | 63.90 |
+| #6 | VultronRetrieverCore-Qwen3.5-4.5B | 4.5B | 63.57 |
 
 ---
 
