@@ -31,6 +31,7 @@ datasets:
 </p>
 
 <p align="center">
+  <a href="https://arxiv.org/abs/2610.11553"><img src="https://img.shields.io/badge/arXiv-2610.11553-b31b1b?style=flat-square&logo=arxiv" alt="arXiv"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat-square&logo=apache" alt="License"></a>
   <a href="https://github.com/Tencent/EVIE"><img src="https://img.shields.io/badge/GitHub-Tencent%2FEVIE-black?style=flat-square&logo=github" alt="GitHub"></a>
   <a href="https://huggingface.co/tencent/EVIE-4.5B"><img src="https://img.shields.io/badge/🤗_Hugging_Face-EVIE--4.5B-yellow?style=flat-square" alt="Hugging Face 4.5B"></a>
@@ -48,14 +49,15 @@ datasets:
 <p align="center">
   🤗 <a href="https://huggingface.co/tencent/EVIE-4.5B"><b>EVIE-4.5B (Prefix-MRL & HAC)</b></a> &nbsp;•&nbsp;
   🤗 <a href="https://huggingface.co/tencent/EVIE-8B"><b>EVIE-8B (Flagship Teacher)</b></a> &nbsp;•&nbsp;
-  🐙 <a href="https://github.com/Tencent/EVIE"><b>GitHub: Tencent/EVIE</b></a>
+  🐙 <a href="https://github.com/Tencent/EVIE"><b>GitHub: Tencent/EVIE</b></a> &nbsp;•&nbsp;
+  📄 <a href="https://arxiv.org/abs/2610.11553"><b>Paper: arXiv:2610.11553</b></a>
 </p>
 
 </div>
 
 ---
 
-> 📢 **Release Announcement**: All model weights, training pipelines, token compression algorithms (HAC), and evaluation suites have been fully open-sourced in this repository. Full technical details, architectural ablations, and the formal research paper will be updated in an upcoming release.
+> 📢 **Release Announcement**: All model weights, training pipelines, token compression algorithms (HAC), and evaluation suites have been fully open-sourced in this repository. The technical report is available on arXiv: [EVIE: Evidence-Vector-Informed Embeddings for Visual Document Retrieval](https://arxiv.org/abs/2610.11553).
 
 ---
 
@@ -358,12 +360,14 @@ Community-contributed; not maintained or evaluated by the EVIE team.
 ## 📚 Citation
 
 ```bibtex
-@misc{tencent2026evie,
-  title        = {EVIE: High-Performance Multilingual Visual Document Retrieval with Matryoshka Embeddings and Token Compression},
-  author       = {Wang, Zifei and Wen, Wei},
-  year         = {2026},
-  howpublished = {\url{https://github.com/Tencent/EVIE}},
-  note         = {Corresponding author: Wei Wen <jawnrwen@tencent.com>}
+@misc{wang2026evie,
+  title         = {EVIE: Evidence-Vector-Informed Embeddings for Visual Document Retrieval},
+  author        = {Zifei Wang and Wei Wen and Qiang Ji and Qian-Wen Zhang and Ruizhi Qiao and Xing Sun},
+  year          = {2026},
+  eprint        = {2610.11553},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.IR},
+  url           = {https://arxiv.org/abs/2610.11553}
 }
 ```
 
