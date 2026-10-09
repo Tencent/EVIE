@@ -345,6 +345,16 @@ MODEL_DIR=. RUN_NAME=evie-4.5b bash code/shared/eval_run.sh
 
 ---
 
+## 🧩 Community Resources
+
+| Project | What it does | Link |
+|---|---|---|
+| ColNanoVDR | 150M text-only query encoder distilled from EVIE-4.5B. Supports all Prefix-MRL widths and works with existing EVIE indexes, including HAC-compressed ones, so text queries can be encoded on CPU. | [nanovdr/ColNanoVDR-Q-Ettin150M-EVIE45B-2048-ML](https://huggingface.co/nanovdr/ColNanoVDR-Q-Ettin150M-EVIE45B-2048-ML) |
+
+Community-contributed; not maintained or evaluated by the EVIE team.
+
+---
+
 ## 📚 Citation
 
 ```bibtex
